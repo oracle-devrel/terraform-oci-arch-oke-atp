@@ -1,4 +1,4 @@
-# oci-arch-oke-atp
+# terraform-oci-arch-oke-atp
 
 Oracle Cloud Infrastructure Container Engine for Kubernetes is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud. Use Container Engine for Kubernetes (sometimes abbreviated to just OKE) when your development team wants to reliably build, deploy, and manage cloud-native applications. 
 
@@ -78,5 +78,10 @@ When you no longer need the deployment, you can run this command to destroy the 
 
     terraform destroy
 
+## License
+Copyright (c) 2022 Oracle and/or its affiliates.
 
+Licensed under the Universal Permissive License (UPL), Version 1.0.
+
+See [LICENSE](LICENSE) for more details.
 
