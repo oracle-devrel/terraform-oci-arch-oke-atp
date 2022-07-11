@@ -2,6 +2,6 @@
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 resource "local_file" "KubeConfigFile" {
-  content  = module.oci-oke.KubeConfig
+  content  = module.arch-oke.KubeConfig
   filename = "${path.module}/oke_cluster_kubeconfig"
 }

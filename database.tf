@@ -1,7 +1,7 @@
 ## Copyright (c) 2022, Oracle and/or its affiliates. 
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
-module "oci-adb" {
+module "arch-adb" {
   count                                 = var.deploy_ATP ? 1 : 0
   source                                = "github.com/oracle-devrel/terraform-oci-arch-adb"
   adb_database_db_name                  = var.ATP_database_db_name
