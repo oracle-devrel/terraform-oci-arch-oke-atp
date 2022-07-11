@@ -32,6 +32,7 @@
             - show_advanced
       variables:
       - VCN-CIDR
+      - create_IAM_OKE_policies
       - OKE_LB_Subnet-CIDR
       - OKE_API_EndPoint_Subnet-CIDR
       - OKE_NodePool_Subnet-CIDR
@@ -162,6 +163,13 @@
         description: "Choose OKE NodePool Subnet CIDR."
         default: "10.0.30.0/24"
 
+      create_IAM_OKE_policies:
+        type: boolean
+        title: "Create IAM OKE policies?"
+        description: "Check if you want to create IAM OKE polices."
+        visible: true
+        default: false        
+
       cluster_kube_config_token_version:
         type: enum
         visible: true
@@ -194,8 +202,11 @@
         required: false
         title: "Kubernetes Version"
         description: "Choose Kubernetes Version."
-        default: "v1.20.11"
+        default: "v1.23.4"
         enum:
+          - "v1.23.4"
+          - "v1.22.5"
+          - "v1.21.5"
           - "v1.20.11"
           - "v1.20.8"
           - "v1.19.15"
