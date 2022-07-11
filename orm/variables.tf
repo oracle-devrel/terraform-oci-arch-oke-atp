@@ -13,11 +13,15 @@ variable "availablity_domain_name" {
 
 variable "release" {
   description = "Reference Architecture Release (OCI Architecture Center)"
-  default     = "1.3"
+  default     = "1.4"
 }
 
 variable "VCN-CIDR" {
   default = "10.0.0.0/16"
+}
+
+variable "create_IAM_OKE_policies" {
+  default = false
 }
 
 variable "OKE_LB_Subnet-CIDR" {
@@ -49,18 +53,12 @@ variable "node_pool_size" {
 }
 
 variable "kubernetes_version" {
-  default = "v1.20.11"
+  default = "v1.23.4"
 }
 
 variable "node_pool_shape" {
-  default = "VM.Standard.E3.Flex"
+  default = "VM.Standard.E4.Flex"
 }
-
-/*
-variable "instance_os" {
-  default = "Oracle Linux"
-}
-*/
 
 variable "linux_os_version" {
   default = "7.9"
@@ -75,7 +73,7 @@ variable "node_pool_flex_shape_ocpus" {
 }
 
 variable "cluster_name" {
-  default = "msdataworkshopcluster"
+  default = "OKEATP_cluster"
 }
 
 variable "deploy_ATP" {
