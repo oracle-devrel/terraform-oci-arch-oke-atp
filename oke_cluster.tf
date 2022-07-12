@@ -1,7 +1,7 @@
 ## Copyright (c) 2022, Oracle and/or its affiliates. 
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
-module "arch-oke" {
+module "oci-oke" {
   source                            = "github.com/oracle-devrel/terraform-oci-arch-oke"
   tenancy_ocid                      = var.tenancy_ocid
   compartment_ocid                  = var.compartment_ocid
