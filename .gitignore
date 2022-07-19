@@ -43,3 +43,4 @@ Temporary Items
 *.crt
 *.csr
 *.pem
+oke_cluster_kubeconfig
