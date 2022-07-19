@@ -18,6 +18,6 @@ module "oci-adb" {
   adb_database_freeform_tags            = var.ATP_database_freeform_tags
   adb_database_license_model            = var.ATP_database_license_model
   is_data_guard_enabled                 = var.ATP_data_guard_enabled
-  defined_tags                          = { "${oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name}.${oci_identity_tag.ArchitectureCenterTag.name}" = var.release }
+  defined_tags                          = local.defined_tags
 }
 

@@ -13,7 +13,6 @@ module "oci-oke" {
   node_memory                       = var.node_pool_flex_shape_memory
   node_count                        = var.node_pool_size
   node_linux_version                = var.linux_os_version
-  k8s_version                       = var.kubernetes_version
   cluster_kube_config_token_version = var.cluster_kube_config_token_version
   pods_cidr                         = var.cluster_options_kubernetes_network_config_pods_cidr
   services_cidr                     = var.cluster_options_kubernetes_network_config_services_cidr
@@ -25,5 +24,5 @@ module "oci-oke" {
   lb_subnet_id                      = oci_core_subnet.OKE_ATP_lb_subnet.id
   is_nodepool_subnet_public         = true
   nodepool_subnet_id                = oci_core_subnet.OKE_ATP_nodepool_subnet.id
-  defined_tags                      = { "${oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name}.${oci_identity_tag.ArchitectureCenterTag.name}" = var.release }
+  defined_tags                      = local.defined_tags
 }
