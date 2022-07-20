@@ -7,8 +7,8 @@ locals {
   # declare a local for defined tags to conceal from the rest of the module how we're creating them
 }
 module "policies" {
-  source = "../terraform-oci-arch-policies"
-  #source                        = "github.com/oracle-devrel/terraform-oci-arch-policies"
+  #source = "../terraform-oci-arch-policies"
+  source                        = "github.com/oracle-devrel/terraform-oci-arch-policies"
   activate_policies_for_service = ["OKE"]
   tenancy_ocid                  = var.tenancy_ocid
   compartment_ocid              = var.compartment_ocid
