@@ -48,10 +48,6 @@ variable "node_pool_size" {
   default = 3
 }
 
-variable "kubernetes_version" {
-  default = "v1.20.11"
-}
-
 variable "node_pool_shape" {
   default = "VM.Standard.E3.Flex"
 }
@@ -83,7 +79,13 @@ variable "deploy_ATP" {
 }
 
 variable "ATP_password" {
-  default = ""
+  sensitive   = true
+  description = "Admin password to set on the ATP database instance"
+  type        = string
+  validation {
+    condition     = length(var.ATP_password) >= 8
+    error_message = "Password doesn't satisfy min length"
+  }
 }
 
 variable "ATP_database_cpu_core_count" {
