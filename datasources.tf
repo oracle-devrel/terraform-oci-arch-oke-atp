@@ -3,6 +3,7 @@
 
 
 data "oci_core_services" "AllOCIServices" {
+  provider       = oci.targetregion 
   filter {
     name   = "name"
     values = ["All .* Services In Oracle Services Network"]

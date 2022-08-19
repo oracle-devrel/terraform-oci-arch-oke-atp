@@ -4,6 +4,7 @@
 module "oci-adb" {
   count                                 = var.deploy_ATP ? 1 : 0
   source                                = "github.com/oracle-devrel/terraform-oci-arch-adb"
+  providers                             = { oci = oci.targetregion }
   adb_database_db_name                  = var.ATP_database_db_name
   adb_database_display_name             = var.ATP_database_display_name
   adb_database_db_version               = var.ATP_database_db_version

@@ -7,9 +7,10 @@ module "oci-policies" {
   providers                     = { oci = oci.homeregion }
   activate_policies_for_service = ["OKE"]
   tenancy_ocid                  = var.tenancy_ocid
-  policy_compartment_ocid       = var.compartment_ocid
+  compartment_ocid              = var.compartment_ocid
   random_id                     = "${random_id.tag.hex}"
   region_name                   = var.region
-  defined_tags                  = { "${oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name}.${oci_identity_tag.ArchitectureCenterTag.name}" = var.release }
+  tag_namespace                 = oci_identity_tag_namespace.ArchitectureCenterTagNamespace.name
+  release                       = var.release
 }
 

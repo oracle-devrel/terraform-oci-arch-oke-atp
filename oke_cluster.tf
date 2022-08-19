@@ -3,6 +3,7 @@
 
 module "oci-oke" {
   source                            = "github.com/oracle-devrel/terraform-oci-arch-oke"
+  providers                         = { oci = oci.targetregion }
   tenancy_ocid                      = var.tenancy_ocid
   compartment_ocid                  = var.compartment_ocid
   availability_domain               = var.availablity_domain_name

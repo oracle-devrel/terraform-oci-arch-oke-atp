@@ -2,12 +2,14 @@
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 resource "oci_core_vcn" "OKE_ATP_vcn" {
+  provider       = oci.targetregion 
   cidr_block     = var.VCN-CIDR
   compartment_id = var.compartment_ocid
   display_name   = "OKE_ATP_vcn"
 }
 
 resource "oci_core_service_gateway" "OKE_ATP_sg" {
+  provider       = oci.targetregion 
   compartment_id = var.compartment_ocid
   display_name   = "OKE_ATP_sg"
   vcn_id         = oci_core_vcn.OKE_ATP_vcn.id
@@ -17,12 +19,14 @@ resource "oci_core_service_gateway" "OKE_ATP_sg" {
 }
 
 resource "oci_core_internet_gateway" "OKE_ATP_igw" {
+  provider       = oci.targetregion 
   compartment_id = var.compartment_ocid
   display_name   = "OKE_ATP_igw"
   vcn_id         = oci_core_vcn.OKE_ATP_vcn.id
 }
 
 resource "oci_core_route_table" "OKE_ATP_rt_via_igw" {
+  provider       = oci.targetregion 
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.OKE_ATP_vcn.id
   display_name   = "OKE_ATP_rt_via_igw_and_sg"
@@ -36,6 +40,7 @@ resource "oci_core_route_table" "OKE_ATP_rt_via_igw" {
 }
 
 resource "oci_core_security_list" "OKE_ATP_api_endpoint_subnet_sec_list" {
+  provider       = oci.targetregion 
   compartment_id = var.compartment_ocid
   display_name   = "OKE_ATP_api_endpoint_subnet_sec_list"
   vcn_id         = oci_core_vcn.OKE_ATP_vcn.id
@@ -113,6 +118,7 @@ resource "oci_core_security_list" "OKE_ATP_api_endpoint_subnet_sec_list" {
 }
 
 resource "oci_core_security_list" "OKE_ATP_nodepool_subnet_sec_list" {
+  provider       = oci.targetregion 
   compartment_id = var.compartment_ocid
   display_name   = "OKE_ATP_nodepool_subnet_sec_list"
   vcn_id         = oci_core_vcn.OKE_ATP_vcn.id
@@ -200,6 +206,7 @@ resource "oci_core_security_list" "OKE_ATP_nodepool_subnet_sec_list" {
 }
 
 resource "oci_core_subnet" "OKE_ATP_api_endpoint_subnet" {
+  provider          = oci.targetregion 
   cidr_block        = var.OKE_API_EndPoint_Subnet-CIDR
   compartment_id    = var.compartment_ocid
   vcn_id            = oci_core_vcn.OKE_ATP_vcn.id
@@ -209,6 +216,7 @@ resource "oci_core_subnet" "OKE_ATP_api_endpoint_subnet" {
 }
 
 resource "oci_core_subnet" "OKE_ATP_lb_subnet" {
+  provider       = oci.targetregion 
   cidr_block     = var.OKE_LB_Subnet-CIDR
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.OKE_ATP_vcn.id
@@ -219,6 +227,7 @@ resource "oci_core_subnet" "OKE_ATP_lb_subnet" {
 }
 
 resource "oci_core_subnet" "OKE_ATP_nodepool_subnet" {
+  provider          = oci.targetregion 
   cidr_block        = var.OKE_NodePool_Subnet-CIDR
   compartment_id    = var.compartment_ocid
   vcn_id            = oci_core_vcn.OKE_ATP_vcn.id
