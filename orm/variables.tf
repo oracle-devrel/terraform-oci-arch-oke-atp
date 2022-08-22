@@ -13,7 +13,7 @@ variable "availablity_domain_name" {
 
 variable "release" {
   description = "Reference Architecture Release (OCI Architecture Center)"
-  default     = "1.4"
+  default     = "1.5"
 }
 
 variable "VCN-CIDR" {
@@ -21,7 +21,7 @@ variable "VCN-CIDR" {
 }
 
 variable "create_IAM_OKE_policies" {
-  default = false
+  default = true
 }
 
 variable "OKE_LB_Subnet-CIDR" {
@@ -53,7 +53,7 @@ variable "node_pool_size" {
 }
 
 variable "kubernetes_version" {
-  default = "v1.23.4"
+  default = "v1.24.1"
 }
 
 variable "node_pool_shape" {
@@ -61,7 +61,7 @@ variable "node_pool_shape" {
 }
 
 variable "linux_os_version" {
-  default = "7.9"
+  default = "8.6"
 }
 
 variable "node_pool_flex_shape_memory" {
