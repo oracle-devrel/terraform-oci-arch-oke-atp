@@ -39,6 +39,8 @@
       - kubernetes_version
       - linux_os_version
       - cluster_name
+      - node_pool_image_type
+      - node_image_id
       - node_pool_size
       - node_pool_shape
       - node_pool_flex_shape_memory
@@ -200,9 +202,8 @@
         required: false
         title: "Kubernetes Version"
         description: "Choose Kubernetes Version."
-        default: "Latest"
+        default: "1.26.2"
         enum:
-          - "Latest"
           - "v1.26.2"
           - "v1.25.4"
           - "v1.24.1"
@@ -213,7 +214,7 @@
         visible: true
         title: "OKE Node OS version"
         description: "Choose Operating System version that determines the operating system version for OKE Nodes."
-        default: "8.6"
+        default: "7.9"
         enum:
           - "7.9"  
           - "8.5"
@@ -243,7 +244,28 @@
         description: "Choose shape for compute instances in OKE NodePool."
         default: "VM.Standard.E4.Flex"
         dependsOn:
-          compartmentId: ${compartment_ocid}      
+          compartmentId: ${compartment_ocid}   
+
+      node_pool_image_type:
+        type: enum
+        visible: true
+        required: false
+        title: "Node Pool Image Type"  
+        description: "Select a node pool image type. Choosing CUSTOM requires you also enter a Node Pool Image ID."
+        default: "oke"
+        enum:
+          - "oke"
+          - "platform"
+          - "custom"   
+        
+      node_image_id:
+        type: string
+        visible: true
+        required: false
+        title: "Node Pool Image OCID"
+        description: "Enter the OCID of the desired node pool image. If you selected an image type of PLATFORM, this field is required."
+        dependsOn:
+            node_pool_image_type: "custom"
 
       node_pool_flex_shape_ocpus:
         type: number

@@ -53,7 +53,7 @@ variable "node_pool_size" {
 }
 
 variable "kubernetes_version" {
-  default = "v1.24.1"
+  default = "v1.26.2"
 }
 
 variable "node_pool_shape" {
@@ -61,7 +61,7 @@ variable "node_pool_shape" {
 }
 
 variable "linux_os_version" {
-  default = "8.6"
+  default = "7.9"
 }
 
 variable "node_pool_flex_shape_memory" {
