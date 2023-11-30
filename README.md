@@ -7,8 +7,6 @@ Oracle Autonomous Transaction Processing (ATP) is a cloud database service that 
 ## Prerequisites
 
 - Permission to `manage` the following types of resources in your Oracle Cloud Infrastructure tenancy: `vcns`, `internet-gateways`, `route-tables`, `security-lists`, `subnets`, `autonomous-database-family`, and `instances`.
-
-- Policy on OCI tenancy root compartment level to allow OKE to manange the resources: `allow service OKE to manage all-resources in tenancy`.
  
 - Quota to create the following resources: 1 VCN, 2 subnets, 1 Internet Gateway, 1 route rule, 1 ATP database instance, and 1 OKE Cluster.
 
