@@ -77,7 +77,7 @@ When you no longer need the deployment, you can run this command to destroy the 
     terraform destroy
 
 ## License
-Copyright (c) 2022 Oracle and/or its affiliates.
+Copyright (c) 2024 Oracle and/or its affiliates.
 
 Licensed under the Universal Permissive License (UPL), Version 1.0.
 
